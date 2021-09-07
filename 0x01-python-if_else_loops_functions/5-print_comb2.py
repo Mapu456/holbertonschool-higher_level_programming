@@ -4,4 +4,3 @@ for c in range(0, 100):
         print("{:d}".format(c))
     else:
         print("{:02d}".format(c), end=", ")
-
