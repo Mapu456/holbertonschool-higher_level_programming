@@ -4,4 +4,6 @@ def print_last_digit(number):
 		number = number * -1
 	for last_digit in str(number):
 		last3 = int(last_digit[-1])
-	print("{:d}".format(last3))
+	print("{:d}".format(last3), end = "")
+	return(last3)
+
