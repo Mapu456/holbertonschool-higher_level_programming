@@ -18,5 +18,5 @@ def uppercase(str):
                 number = 57
             if number == 93:
                 number = 56
-        print("{:c}".format(number), end="")
+        print("{:c}".format(number), end='')
     print()
