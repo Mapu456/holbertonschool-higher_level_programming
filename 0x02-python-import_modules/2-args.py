@@ -12,4 +12,4 @@ if __name__ == "__main__":
     count = 0
     for arguments in arg0:
         count += 1
-        print("{:d} : {:s}".format(count, arguments))
+        print("{:d}: {:s}".format(count, arguments))
