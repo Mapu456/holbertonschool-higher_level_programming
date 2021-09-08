@@ -6,5 +6,7 @@ if long == 1:
 elif long == 0 or long > 1:
     print("{:d} arguments".format(long))
 arg0 = sys.argv[1:]
+count = 0
 for arguments in arg0:
-	print("{:d} : {:s}".format(long, arguments))
+    count += 1
+    print("{:d} : {:s}".format(count, arguments))
