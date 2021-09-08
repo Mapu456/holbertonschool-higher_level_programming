@@ -2,5 +2,5 @@
 if __name__ == "__main__":
     import hidden_4
     for arguments in dir(hidden_4):
-        if arguments[0:2] != '_':
+        if arguments[0:2] != '__':
             print(arguments)
