@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def number_keys(a_dictionary):
-    return (sorted(a_dictionary.keys()))
+    for key in sorted(a_dictionary):
+        return key
