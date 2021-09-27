@@ -7,5 +7,5 @@ def safe_print_integer(value):
         elif value >= 0:
             print("{:d}".format(value))
             return True
-    except (TypeError, ValueError):
+    except Exception:
         return False
