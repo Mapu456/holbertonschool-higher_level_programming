@@ -2,10 +2,10 @@
 def safe_print_integer(value):
 	try:
 		if value < 0:
-			print(value)
+			print("{:d}".format(value))
 			return True
 		elif value >= 0:
-			print(value)
+			print("{:d}".format(value))
 			return True
 	except TypeError:
 		return False
