@@ -7,5 +7,5 @@ def safe_print_integer(value):
 		elif value >= 0:
 			print(value)
 			return True
-	except:
+	except TypeError:
 		return False
