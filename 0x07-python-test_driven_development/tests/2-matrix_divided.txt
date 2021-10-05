@@ -13,31 +13,28 @@ Import module:
 
 ======================
 Should return a new matrix with numbers divided by 3:
-    >>> matrix_divided = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
 	>>> matrix_divided(matrix, 3)
 	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
 Should return a list (check type):
-    >>> type(matrix_divided = [[1, 2, 3], [4, 5, 6]]) == list
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> type(matrix) == list
     True
 
 Should return a new matrix from matrix (float and int) with numbers divided by 3:
-    >>> matrix_divided = [[1.0, 2.55, 3.2], [4, 5.5, 6.3]]
+    >>> matrix = [[1.0, 2.55, 3.2], [4, 5.5, 6.3]]
 	>>> matrix_divided(matrix, 3)
 	[[0.33, 0.85, 1.07], [1.33, 1.83, 2.1]]
 
 Should raise an exception:
-    >>> matrix_divided[None]
-    Traceback (most recent call last):
+    >>> matrix = [None]
+	>>> matrix_divided(matrix, 1)
+	Traceback (most recent call last):
 	...
 	TypeError: object of type 'NoneType' has no len()
 
-Should return the new list whit a negative div and matrix(int and float):
-    >>> matrix_divided = [[1.0, 2.55, 3.2], [4, 5.5, 6.3]]
-    >>> matrix_divided(matrix, -3)
-	[[-0.33, -0.85, -1.07], [-1.33, -1.83, -2.1]]
-
 Should return the new list whit a negative div and matrix(negative int and negative float):
-    >>> matrix_divided = [[-1.0, 2.55, -3], [-4, 5.5, -6.3]]
-    >>> matrix_divided(matrix, -3)
-	[[0.33, -0.85, 1.0], [1.33, -1.83, 2.1]]
+    >>> matrix = [[1.0, 2.55, -3.2], [-4, 5.5, 6.3]]
+	>>> matrix_divided(matrix, -3)
+	[[-0.33, -0.85, 1.07], [1.33, -1.83, -2.1]]
