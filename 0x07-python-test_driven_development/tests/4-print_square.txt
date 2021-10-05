@@ -1,0 +1,14 @@
+======================
+4-print_square module
+======================
+Function
+========
+Function to say the name, with first name and last name these must be string, otherwise
+raise a TypeError exception.
+
+Import module:
+======================
+
+    >>> print_square = __import__('4-print_square').print_square
+
+======================

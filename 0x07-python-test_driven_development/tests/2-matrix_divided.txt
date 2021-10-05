@@ -1,10 +1,9 @@
 ======================
-0. Add integers module
+2-matrix_divided module
 ======================
 Function
 ========
-Function to add two integers, a and b, these must be integers or floats, otherwise
-raise a TypeError exception.
+Function to divide a dates of a matrix and review several things
 
 Import module:
 ======================
@@ -27,7 +26,7 @@ Should return a new matrix from matrix (float and int) with numbers divided by 3
 	>>> matrix_divided(matrix, 3)
 	[[0.33, 0.85, 1.07], [1.33, 1.83, 2.1]]
 
-Should raise an exception:
+Should raise an exception is matrix have None:
     >>> matrix = [None]
 	>>> matrix_divided(matrix, 1)
 	Traceback (most recent call last):
@@ -38,3 +37,78 @@ Should return the new list whit a negative div and matrix(negative int and negat
     >>> matrix = [[1.0, 2.55, -3.2], [-4, 5.5, 6.3]]
 	>>> matrix_divided(matrix, -3)
 	[[-0.33, -0.85, 1.07], [1.33, -1.83, -2.1]]
+
+Should raise an exception if matrix is a tuple:
+    >>> matrix = ([1, 3, 5], [4.6, 6.2, 2])
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Should raise an exception is matrix have None:
+    >>> matrix = []
+	>>> matrix_divided(matrix, 1)
+	[]
+
+Should raise an exception is div is iqual to 0:
+    >>> matrix = [[1, 3, 5], [4.6, 6.2, 2]]
+	>>> matrix_divided(matrix, 0)
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+Should raise an exception is matrix has a string:
+    >>> matrix = [[1, "Angela", 5], [4.6, "juanes", 2]]
+	>>> matrix_divided(matrix, 5)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Should raise an exception if div is a character:
+    >>> matrix = [[1, 5, 5], [4.6, 8, 2]]
+	>>> matrix_divided(matrix, '5')
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+Should raise an exception if matrix has a string and has diferente size:
+    >>> matrix = [[1, 5], ["hello", 8, 2]]
+	>>> matrix_divided(matrix, 5)
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+Should raise an exception if matrix has a inf float:
+    >>> matrix = [[1, -5, float('inf')], [4, 8, 2]]
+	>>> matrix_divided(matrix, 5)
+	[[0.2, -1.0, inf], [0.8, 1.6, 0.4]]
+
+Should raise an exception if matrix has a inf float and div is inf also:
+    >>> matrix = [[1, -5, float('inf')], [4, 8, 2]]
+	>>> matrix_divided(matrix, float('inf'))
+	[[0.0, -0.0, nan], [0.0, 0.0, 0.0]]
+
+Should raise an exception if matrix and div has a nan:
+    >>> matrix = [[1, -5, float('NaN')], [4, 0, 2]]
+	>>> matrix_divided(matrix, float('NaN'))
+	[[nan, nan, nan], [nan, nan, nan]]
+
+Should raise an exception if matrix and div has a nan:
+    >>> matrix = [[1, -5, float('inf')], [4, 0, 2]]
+	>>> matrix_divided(matrix, float('NaN'))
+	[[nan, nan, nan], [nan, nan, nan]]
+
+Should raise an exception if matrix has a inf nan and div is inf:
+    >>> matrix = [[1, -5, float('NaN')], [4, 0, 2]]
+	>>> matrix_divided(matrix, float('inf'))
+	[[0.0, -0.0, nan], [0.0, 0.0, 0.0]]
+
+Should raise an exception if matrix has a zeros and negative div:
+    >>> matrix = [[0, 0, 0], [0, 0, 0]]
+	>>> matrix_divided(matrix, -5)
+	[[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]
+
+Should raise an exception if matrix has a zeros and negative div:
+    >>> matrix = [[-0, -0, -0], [-0, -0, -0]]
+	>>> matrix_divided(matrix, -5)
+	[[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]

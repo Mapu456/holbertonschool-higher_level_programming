@@ -1,0 +1,73 @@
+======================
+3-say_my_name module
+======================
+Function
+========
+Function to say the name, with first name and last name these must be string, otherwise
+raise a TypeError exception.
+
+Import module:
+======================
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+======================
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = "Maria"
+	>>> last_name = "Medina"
+	>>> say_my_name(first_name, last_name)
+	My name is Maria Medina
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = "Bob"
+	>>> say_my_name(first_name)
+	My name is Bob 
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = 5
+	>>> last_name = "Medina"
+	>>> say_my_name(first_name, last_name)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = ["hola", 5]
+	>>> last_name = "hola"
+	>>> say_my_name(first_name, last_name)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Should return a new matrix with numbers divided by 3:
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Should return a new matrix with numbers divided by 3:
+	>>> say_my_name("")
+	My name is  
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = None
+	>>> last_name = "hola"
+	>>> say_my_name(first_name, last_name)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = '5'
+	>>> last_name = "hola"
+	>>> say_my_name(first_name, last_name)
+	My name is 5 hola
+
+Should return a new matrix with numbers divided by 3:
+    >>> first_name = 'Maria'
+	>>> last_name = "hola"
+	>>> last_name2 = "Medina"
+	>>> say_my_name(first_name, last_name, last_name2)
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
