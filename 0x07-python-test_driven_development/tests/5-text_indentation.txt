@@ -23,6 +23,7 @@ Should print the splited text:
     It also provides sample tasks?
     <BLANKLINE>
     for eachmodule.
+    <BLANKLINE>
 
 Should print the splited text:
     >>> text_indentation()
@@ -43,6 +44,7 @@ Should print the splited text:
     estas?
     <BLANKLINE>
     j.
+    <BLANKLINE>
 
 Should print the splited text:
     >>> text_indentation(":?.")
@@ -51,6 +53,7 @@ Should print the splited text:
     ?
     <BLANKLINE>
     .
+    <BLANKLINE>
 
 Should print the splited text:
     >>> text_indentation("")
@@ -63,7 +66,6 @@ Should print the splited text:
 
 Should print the splited text:
     >>> text_indentation(" ")
-    <BLANKLINE>
 
 Should print the splited text:
     >>> text_indentation("""This is a sample test for the Oxford Test of English, It provides an overview of the four testmodules, Speaking, Listening, Reading, and Writing, It also provides sample tasks for eachmodule""")
@@ -82,15 +84,3 @@ Should print the splited text:
 Should print the splited text:
     >>> text_indentation("hola" "paula")
     holapaula
-
-Should print the splited text:
-    >>> text_indentation("hola", "paula")
-    Traceback (most recent call last):
-    ...
-    TypeError: text_indentation() takes 1 positional argument but 2 were given
-
-Should print the splited text:
-    >>> text_indentation(hola)
-    Traceback (most recent call last):
-    ...
-    NameError: name 'hola' is not defined
