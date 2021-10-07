@@ -9,4 +9,4 @@ class test_max_integer(unittest.TestCase):
 	"""function"""
 	def test_normal_case(self):
 		"""Test"""
-		
+		self.
