@@ -20,7 +20,7 @@ check class docstring:
     >>> MyList.__doc__ != None
     True
 
-Create a new instance of BaseGeometry class:
+Declare the object:
     >>> my_list = MyList()
 
 define values:
