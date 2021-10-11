@@ -1,0 +1,71 @@
+======================
+1. my list module
+======================
+Function
+========
+Function to add two integers, a and b, these must be integers or floats, otherwise
+raise a TypeError exception.
+
+Import module:
+======================
+
+    >>> MyList = __import__('1-my_list').MyList
+
+======================
+Create a new instance of BaseGeometry class:
+    >>> my_list = MyList()
+
+define values:
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+
+Should return the list of integers:
+    >>> my_list.print_sorted()
+    [1, 4]
+
+Should print float and int:
+    >>> my_list.append(1.5)
+    >>> my_list.print_sorted()
+    [1, 1.5, 4]
+
+Should print float, int and negative:
+    >>> my_list.append(-4)
+    >>> my_list.print_sorted()
+    [-4, 1, 1.5, 4]
+
+Should print float, hex and negative:
+    >>> my_list.append(0x51)
+    >>> my_list.print_sorted()
+    [-4, 1, 1.5, 4, 81]
+
+Should print float, inf and negative:
+    >>> my_list.append(float('inf'))
+    >>> my_list.print_sorted()
+    [-4, 1, 1.5, 4, 81, inf]
+
+Should print float, inf, int, nan and negative:
+    >>> my_list.append(float('Nan'))
+    >>> my_list.print_sorted()
+    [-4, 1, 1.5, 4, 81, inf, nan]
+
+Should print an exception:
+    >>> my_list.append("hola")
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
+
+Should print an exception:
+    >>> my_list.append(3, 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: append() takes exactly one argument (2 given)
+
+Should print an exception:
+    >>> my_list.append(None)
+
+Should print an exception:
+    >>> my_list.append()
+    Traceback (most recent call last):
+    ...
+    TypeError: append() takes exactly one argument (0 given)
