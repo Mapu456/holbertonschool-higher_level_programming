@@ -26,7 +26,7 @@ Declare the object:
 >>> bg.integer_validator("Maria", "Paula")
 Traceback (most recent call last):
     ...
-TypeError: str must be an integer
+TypeError: Maria must be an integer
 
 >>> bg.integer_validator()
 Traceback (most recent call last):
@@ -36,12 +36,12 @@ TypeError: integer_validator() missing 2 required positional arguments: 'name' a
 >>> bg.integer_validator("Maria", -4)
 Traceback (most recent call last):
     ...
-ValueError: str must be greater than 0
+ValueError: Maria must be greater than 0
 
 >>> bg.integer_validator("Maria", 0)
 Traceback (most recent call last):
     ...
-ValueError: str must be greater than 0
+ValueError: Maria must be greater than 0
 
 >>> bg.integer_validator(None, 13)
 
@@ -65,12 +65,12 @@ SyntaxError: invalid syntax
 >>> bg.integer_validator("Maria", True)
 Traceback (most recent call last):
     ...
-TypeError: string must be an integer
+TypeError: Maria must be an integer
 
 >>> bg.integer_validator("Maria", 10.76)
 Traceback (most recent call last):
     ...
-TypeError: string must be an integer
+TypeError: Maria must be an integer
 
 >>> bg.integer_validator("", True)
 Traceback (most recent call last):
@@ -80,17 +80,12 @@ TypeError:  must be an integer
 >>> bg.integer_validator("Maria", None)
 Traceback (most recent call last):
     ...
-TypeError: str must be an integer
+TypeError: Maria must be an integer
 
 >>> bg.integer_validator("Maria", {5,8,9})
 Traceback (most recent call last):
     ...
-TypeError: str must be an integer
-
->>> bg.area()
-Traceback (most recent call last):
-    ...
-Exception: area() is not implemented
+TypeError: Maria must be an integer
 
 >>> bg.area()
 Traceback (most recent call last):
