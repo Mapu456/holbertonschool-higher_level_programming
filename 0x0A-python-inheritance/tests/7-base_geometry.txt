@@ -1,0 +1,98 @@
+======================
+7. base_geometry module
+======================
+Function
+========
+Function to add two integers, a and b, these must be integers or floats, otherwise
+raise a TypeError exception.
+
+Import module:
+======================
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+======================
+Checking docstring mod:
+    >>> __import__('7-base_geometry').__doc__ != None
+    True
+
+check class docstring:
+    >>> BaseGeometry.__doc__ != None
+    True
+
+Declare the object:
+    >>> bg = BaseGeometry()
+
+>>> bg.integer_validator("Maria", "Paula")
+Traceback (most recent call last):
+    ...
+TypeError: str must be an integer
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg.integer_validator("Maria", -4)
+Traceback (most recent call last):
+    ...
+ValueError: str must be greater than 0
+
+>>> bg.integer_validator("Maria", 0)
+Traceback (most recent call last):
+    ...
+ValueError: str must be greater than 0
+
+>>> bg.integer_validator(None, 13)
+
+>>> bg.integer_validator(None, None)
+Traceback (most recent call last):
+    ...
+TypeError: unsupported format string passed to NoneType.__format__
+
+>>> bg.integer_validator("Maria")
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator(, 15)
+Traceback (most recent call last):
+    ...
+SyntaxError: invalid syntax
+
+>>> bg.integer_validator("", 15)
+
+>>> bg.integer_validator("Maria", True)
+Traceback (most recent call last):
+    ...
+TypeError: string must be an integer
+
+>>> bg.integer_validator("Maria", 10.76)
+Traceback (most recent call last):
+    ...
+TypeError: string must be an integer
+
+>>> bg.integer_validator("", True)
+Traceback (most recent call last):
+    ...
+TypeError:  must be an integer
+
+>>> bg.integer_validator("Maria", None)
+Traceback (most recent call last):
+    ...
+TypeError: str must be an integer
+
+>>> bg.integer_validator("Maria", {5,8,9})
+Traceback (most recent call last):
+    ...
+TypeError: str must be an integer
+
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
