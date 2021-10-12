@@ -1,5 +1,8 @@
+
 #!/usr/bin/python3
-"""Module for read the file with read_file method"""
+"""Function that reads a text file
+    and prints it in the stdout
+"""
 
 
 def read_file(filename=""):
@@ -7,5 +10,5 @@ def read_file(filename=""):
     Args:
         filename (str, optional): Text file. Defaults to "".
     """
-    with open('filename', encoding='utf-8') as f:
-        print(f.read(), end="")
+    with open(filename, encoding='utf-8') as reader:
+        print(reader.read(), end="")
