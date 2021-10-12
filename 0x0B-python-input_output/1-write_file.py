@@ -8,5 +8,5 @@ def write_file(filename="", text=""):
         filename: Text file.""
     """
     with open(filename, 'w', encoding='utf-8') as f:
-    	read_data = f.write(text)
-    	return(read_data)
+        read_data = f.write(text)
+        return(read_data)
