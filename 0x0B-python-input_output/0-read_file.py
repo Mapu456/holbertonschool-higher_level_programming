@@ -7,7 +7,8 @@
 def read_file(filename=""):
     """Read and print a text file
     Args:
-        filename (str, optional): Text file. Defaults to "".
+        filename: Text file. Defaults to "".
     """
-    with open(filename, encoding='utf-8') as reader:
-        print(reader.read(), end="")
+    with open(filename, encoding='utf-8') as f:
+        read = f.read()
+        print(read, end="")
