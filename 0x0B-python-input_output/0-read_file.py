@@ -3,6 +3,9 @@
 
 
 def read_file(filename=""):
-    """Module for read the file with read_file method"""
+    """Read and print a text file
+    Args:
+        filename (str, optional): Text file. Defaults to "".
+    """
     with open('filename', encoding='utf-8') as f:
         print(f.read(), end="")
