@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Function that reads a text file
     and prints it in the stdout
