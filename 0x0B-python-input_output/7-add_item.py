@@ -5,7 +5,7 @@
 import json
 
 
-def load_from_json_file(filename):
+def save_to_json_file(my_obj, filename):
     """Creates an object from a JSON file"""
     with open(filename, 'w', encoding='utf-8') as f:
-        return (json.dumps(f))
+        return (json.dumps(my_obj))
