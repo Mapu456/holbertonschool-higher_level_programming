@@ -21,7 +21,7 @@ class Student:
         '''
         Defines a student class
         '''
-        if attrs == None:
+        if attrs is None:
             return self.__dict__
         new_dict = dict()
         for i in self.__dict__:
