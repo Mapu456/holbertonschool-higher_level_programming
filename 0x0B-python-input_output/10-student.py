@@ -10,11 +10,17 @@ class Student:
     '''
 
     def __init__(self, first_name, last_name, age):
+        '''
+        Defines a student class
+        '''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
+        '''
+        Defines a student class
+        '''
         if attrs == None:
             return self.__dict__
         new_dict = dict()
