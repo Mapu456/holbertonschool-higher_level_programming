@@ -9,7 +9,6 @@ class Rectangle(Base):
         Args:
     filename: Text file. Defaults to "".
         """
-
     def __init__(self, width, height, x=0, y=0, id=None):
         if type(width) is not int:
             raise TypeError('width must be an integer')
@@ -92,11 +91,5 @@ class Rectangle(Base):
     def __str__(self):
         return ("[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id, self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args, **kwargs):
-        attributes = ['id', 'width', 'height', 'x', 'y']
-        if args and args[0]:
-            for i in range(len(args)):
-                setattr(self, attributes[i], args[i])
-        else:
-            for key in kwargs:
-                setattr(self, key, kwargs[key])
+    def update(self, *args):
+        return args
