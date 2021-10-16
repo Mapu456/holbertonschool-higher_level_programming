@@ -88,4 +88,5 @@ class Rectangle(Base):
                 setattr(self, k, v)
 
     def to_dictionary(self):
-        return self.__dict__
+        return {'x': self.x, 'width': self.width, 'id': self.id, 'height': self.height,
+                'y': self.y}
