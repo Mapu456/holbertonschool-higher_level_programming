@@ -27,10 +27,12 @@ Args:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        if list_objs is None:
-            list_objs = []
-        new_dict = dict()
-        for key, value in list_objs.items:
-            return
-        with open("{}.json".format(cls.__name__), "w") as file:
-            return file.write()
+        list = []
+        filename = "{}.json".format(cls.__name__)
+        with open(filename, 'w') as file:
+            if list_objs is None:
+                file.write(list)
+            else:
+                for i in range(len(list_objs)):
+                    list.append(cls.to_dictionary(list_objs[i]))
+                file.write(cls.to_json_string(list))
