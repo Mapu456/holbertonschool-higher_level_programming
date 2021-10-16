@@ -9,6 +9,7 @@ class Rectangle(Base):
         Args:
     filename: Text file. Defaults to "".
         """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         if type(width) is not int:
             raise TypeError('width must be an integer')
@@ -93,3 +94,6 @@ class Rectangle(Base):
 
     def update(self, *args):
         return args
+
+    def to_dictionary(self):
+        return self.__dict__
