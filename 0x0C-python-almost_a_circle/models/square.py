@@ -21,7 +21,14 @@ class Square(Rectangle):
         self.height = number
 
     def update(self, *args, **kwargs):
-        return args
+        key = ["id", "size", "x", "y"]
+
+        if args:
+            for i in range(len(args)):
+                setattr(self, key[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
         return self.__dict__
