@@ -36,3 +36,29 @@ Args:
                 for i in range(len(list_objs)):
                     list.append(cls.to_dictionary(list_objs[i]))
                 file.write(cls.to_json_string(list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None or not json_string:
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        new_dict = []
+        if ("{}.json".format(cls.__name__)) is not None:
+            with open("{}.json".format(cls.__name__), 'r') as file_read:
+                list_dict = cls.from_json_string(file_read.read())
+                for i in list_dict:
+                    new_dict.append(cls.create(**i))
+        return (new_dict)
