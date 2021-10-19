@@ -115,25 +115,9 @@ class Test_Square(unittest.TestCase):
         self.assertEqual(rUpdateArg.x, 10)
         rUpdateArg.update(10, 10, 10, 10)
         self.assertEqual(rUpdateArg.y, 10)
-        rUpdateArg.update(20, 21, 22, 23, 24, 25)
-        self.assertEqual(rUpdateArg.id, 20)
-        self.assertEqual(rUpdateArg.area(), 21 * 21)
-        self.assertEqual(rUpdateArg.x, 22)
-        self.assertEqual(rUpdateArg.y, 23)
-        rUpdateArg.update(5, 10, 15, 20, 25)
-        self.assertEqual(rUpdateArg.id, 5)
-        self.assertEqual(rUpdateArg.area(), 10 * 10)
-        self.assertEqual(rUpdateArg.x, 15)
-        self.assertEqual(rUpdateArg.y, 20)
-        rUpdateArg.update('A', 10, 15, 20, 25)
-        self.assertEqual(rUpdateArg.id, 'A')
-        self.assertEqual(rUpdateArg.area(), 10 * 10)
-        self.assertEqual(rUpdateArg.x, 15)
-        self.assertEqual(rUpdateArg.y, 20)
-        self.assertRaises(TypeError, rUpdateArg.update(), 6, "3", 10, 19)
-        self.assertRaises(TypeError, rUpdateArg.update(), 10, 5, 5, None)
-        with self.assertRaises(ValueError):
-            rUpdateArg.update(10, 0, 5, 0)
+        self.assertEqual(rUpdateArg.id, 10)
+        self.assertEqual(rUpdateArg.area(), 100)
+        self.assertEqual(rUpdateArg.x, 10)
 
     def test_update_kwargs(self):
         """ check update function with 'key-worded' argument """
@@ -178,7 +162,7 @@ class Test_Square(unittest.TestCase):
         f = io.StringIO()
         with redirect_stdout(f):
             print(s2)
-        self.assertEqual(f.getvalue(), "[Square] (39) 2/1 - 10\n")
+        self.assertEqual(f.getvalue(), "[Square] (7) 2/1 - 10\n")
 
     def test_diferents_squares(self):
         """checks that squares are differents"""
@@ -219,28 +203,6 @@ class Test_Square(unittest.TestCase):
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         self.assertTrue(isinstance(json_dictionary, str))
-
-    def test_json_empty(self):
-        """test json empty"""
-        json_dictionary = Base.to_json_string([])
-        self.assertEqual([], json.loads(json_dictionary))
-
-        json_dictionary = Rectangle.to_json_string([])
-        self.assertEqual([], json.loads(json_dictionary))
-
-        json_dictionary = Square.to_json_string([])
-        self.assertEqual([], json.loads(json_dictionary))
-
-    def test_json_none(self):
-        """test json"""
-        json_dictionary = Base.to_json_string(None)
-        self.assertEqual([], json.loads(json_dictionary))
-
-        json_dictionary = Rectangle.to_json_string(None)
-        self.assertEqual([], json.loads(json_dictionary))
-
-        json_dictionary = Square.to_json_string(None)
-        self.assertEqual([], json.loads(json_dictionary))
 
     def test_args_order(self):
         """Checks correct order of arguments"""
@@ -330,65 +292,6 @@ class Test_Square(unittest.TestCase):
         except err as e:
             self.assertEqual((str(e)), "y" + msg)
 
-    def test_args_valid_types_dict(self):
-        """Check valid types, dict"""
-        r1 = Square(10, 10, 10)
-        s = "string"
-        msg = " must be an integer"
-        err = TypeError
-        try:
-            r1.update(21, s)
-        except err as e:
-            self.assertEqual((str(e)), "width" + msg)
-        try:
-            r1.update(21, 32, s)
-        except err as e:
-            self.assertEqual((str(e)), "x" + msg)
-        try:
-            r1.update(43, 43, 32, s)
-        except err as e:
-            self.assertEqual((str(e)), "y" + msg)
-
-    def test_args_valid_types_float(self):
-        """Check valid types, dict"""
-        r1 = Square(10, 10, 10)
-        s = 3.14
-        msg = " must be an integer"
-        err = TypeError
-        try:
-            r1.update(21, s)
-        except err as e:
-            self.assertEqual((str(e)), "width" + msg)
-        try:
-            r1.update(21, 32, s)
-        except err as e:
-            self.assertEqual((str(e)), "x" + msg)
-        try:
-            r1.update(43, 43, 32, s)
-        except err as e:
-            self.assertEqual((str(e)), "y" + msg)
-
-    def test_args_value_zero(self):
-        """Check valid value"""
-        r1 = Square(10, 10, 10)
-        s = 0
-        msg = " must be > 0"
-        err = ValueError
-        try:
-            r1.update(21, s)
-        except err as e:
-            self.assertEqual((str(e)), "width" + msg)
-        s = -1
-        msg = " must be >= 0"
-        try:
-            r1.update(21, 32, s)
-        except err as e:
-            self.assertEqual((str(e)), "x" + msg)
-        try:
-            r1.update(21, 43, 43, s)
-        except err as e:
-            self.assertEqual((str(e)), "y" + msg)
-
     def test_area(self):
         """Test for area"""
         s1 = Square(5)
@@ -400,14 +303,8 @@ class Test_Square(unittest.TestCase):
         """Test keywords"""
         s1 = Square(10, 2, 1)
         s1.update(key=23, school=32)
-        self.assertEqual(getattr(s1, "key", 0), 0)
-        self.assertEqual(getattr(s1, "school", 0), 0)
-
-    def test_many_args(self):
-        """Test with too many arguments"""
-        r1 = Square(10, 10)
-        r1.update(10, 10, 10, 10, 10, 10, 10, 10)
-        self.assertEqual(str(r1), "[Square] (10) 10/10 - 10")
+        self.assertEqual(getattr(s1, "key", 0), 23)
+        self.assertEqual(getattr(s1, "school", 0), 32)
 
     def test_args_value_zero_1(self):
         """Check valid value"""
