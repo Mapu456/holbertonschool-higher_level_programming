@@ -5,13 +5,12 @@ import json
 
 
 class Base():
-    """Read and print a text file
-Args:
-    filename: Text file. Defaults to "".
-"""
+    """function for lookup"""
+
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """function for lookup"""
         if id is not None:
             self.id = id
         else:
@@ -20,6 +19,7 @@ Args:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """function for lookup"""
         if list_dictionaries is None or not list_dictionaries:
             return []
         else:
@@ -27,6 +27,7 @@ Args:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """function for lookup"""
         list = []
         filename = "{}.json".format(cls.__name__)
         with open(filename, 'w') as file:
@@ -39,6 +40,7 @@ Args:
 
     @staticmethod
     def from_json_string(json_string):
+        """function for lookup"""
         if json_string is None or not json_string:
             return []
         else:
@@ -46,6 +48,7 @@ Args:
 
     @classmethod
     def create(cls, **dictionary):
+        """function for lookup"""
         if cls.__name__ == "Square":
             dummy = cls(1)
         else:
@@ -55,6 +58,7 @@ Args:
 
     @classmethod
     def load_from_file(cls):
+        """function for lookup"""
         new_dict = []
         if ("{}.json".format(cls.__name__)) is not None:
             with open("{}.json".format(cls.__name__), 'r') as file_read:
