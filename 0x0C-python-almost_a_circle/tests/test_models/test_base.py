@@ -93,7 +93,7 @@ class test_Base(unittest.TestCase):
 
     def test_set_id_none(self):
         b_cero = Base()
-        self.assertEqual(b_cero.id, 13)
+        self.assertEqual(b_cero.id, 33)
 
     def test_set_id_none_fail(self):
         b_one = Base()
@@ -210,13 +210,13 @@ class test_Base(unittest.TestCase):
     def test_02_giving_not_a_integer(self):
         """Tests for None case"""
         b6 = Base()
-        self.assertEqual(b6.id, 8)
+        self.assertEqual(b6.id, 10)
         b7 = Base()
-        self.assertEqual(b7.id, 9)
+        self.assertEqual(b7.id, 11)
         b8 = Base()
-        self.assertEqual(b8.id, 10)
+        self.assertEqual(b8.id, 12)
         b9 = Base(None)
-        self.assertEqual(b9.id, 11)
+        self.assertEqual(b9.id, 13)
 
     def test_03_arguments_in_init(self):
         """Tests for arguments exceded in the class"""
@@ -329,20 +329,6 @@ class test_Base(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Square.load_from_file(list_rectangles_input, 32, 3212)
-
-    def test_aaaaaa_no_file(self):
-        """Test if there is no file"""
-        file = "Rectangle.json"
-        if os.path.isfile(file):
-            os.remove(file)
-        out = Rectangle.load_from_file()
-        self.assertEqual(out, [])
-
-        file = "Square.json"
-        if os.path.isfile(file):
-            os.remove(file)
-        out = Square.load_from_file()
-        self.assertEqual(out, [])
 
     def test_types(self):
         """"Test types"""
