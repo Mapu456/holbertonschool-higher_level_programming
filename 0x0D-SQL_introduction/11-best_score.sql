@@ -4,5 +4,5 @@ SELECT
 FROM
 	second_table
 WHERE
-	score >= 10;
+	score >= 10
 order by score DESC;
