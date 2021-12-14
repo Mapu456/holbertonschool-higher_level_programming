@@ -1,9 +1,6 @@
 #!/usr/bin/node
-exports.esrever = function (list) {
-	var output = [];
-    for (var i = list.length - 1; i> -1; i--){
-        output.push(list[i]);
-    }
-
-    return output;
-};
+let count = 0;
+exports.logMe = function (item) {
+  console.log(i + ': ' + item);
+  count++;
+}
