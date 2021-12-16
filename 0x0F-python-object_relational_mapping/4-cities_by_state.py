@@ -15,10 +15,10 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    cur.execute(
-        "SELECT * FROM states ORDER BY states.id"
-    )
+    cur.execute('select cities.id, cities.name, states.name from cities left join\
+	states on cities.state_id = states.id order by cities.id asc')
     row = cur.fetchall()
-
-    for name in row:
-        print(name)
+    for i in row:
+        print(i)
+    cur.close()
+    db.close()

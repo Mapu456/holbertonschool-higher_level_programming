@@ -15,10 +15,9 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    cur.execute(
-        "SELECT * FROM states ORDER BY states.id"
-    )
+    cur.execute("SELECT * from states where name = '{:s}'".format(argv[4]))
     row = cur.fetchall()
-
-    for name in row:
-        print(name)
+    for i in row:
+        print(i)
+    cur.close()
+    db.close()
