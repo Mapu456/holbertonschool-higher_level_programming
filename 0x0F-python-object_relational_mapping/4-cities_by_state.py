@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     cur = db.cursor()
     cur.execute('select cities.id, cities.name, states.name from cities left join\
-	states on cities.state_id = states.id order by cities.id asc')
+        states on cities.state_id = states.id order by cities.id asc')
     row = cur.fetchall()
     for i in row:
         print(i)
