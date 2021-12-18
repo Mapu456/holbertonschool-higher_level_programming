@@ -13,9 +13,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    query = session.query(State).first()
+    query = session.query(State).where(State.name == 'California')
 
-    if query:
-        print("{}: {}".format(query.id, query.name))
-    else:
-        print("Nothing")
+    for item in query:
+        print("{}: {}".format(item.id, item.name))
