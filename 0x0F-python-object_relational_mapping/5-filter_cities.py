@@ -15,10 +15,10 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    cur.execute('SELECT cities.name FROM cities JOIN states\
-    ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id')
-
-    result = [i[0] for i in cur]
-    print(', '.join(result))
+    cur.execute("SELECT cities.name FROM cities INNER JOIN states ON states.id=\
+                cities.state_id WHERE states.name LIKE BINARY %s \
+                    ORDER BY cities.id", (argv[4], ))
+    row = cur.fetchall()
+    print(", ".join(city[0] for city in row))
     cur.close()
     db.close()
