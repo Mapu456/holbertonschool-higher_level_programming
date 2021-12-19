@@ -17,3 +17,4 @@ if __name__ == "__main__":
 
     if query:
         print("{}: {}".format(query.id, query.name))
+    session.close()
