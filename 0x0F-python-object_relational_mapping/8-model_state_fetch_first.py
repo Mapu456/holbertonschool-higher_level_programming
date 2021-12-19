@@ -1,7 +1,7 @@
+
 #!/usr/bin/python3
-"""Function to print states in asc order"""
-
-
+"""Start link class to table in database
+"""
 from sys import argv
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    query = session.query(State).where(State.name == 'California')
+    query = session.query(State).order_by(State.id)
 
     for item in query:
         print("{}: {}".format(item.id, item.name))
