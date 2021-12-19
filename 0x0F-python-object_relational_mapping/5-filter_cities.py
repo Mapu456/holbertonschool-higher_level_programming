@@ -15,16 +15,10 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    cur.execute("select cities.name from cities where state_id = 3")
-    row = cur.fetchall()
-    lon = len(row)
-    count = 0
-    for i in row:
-        if count == lon - 1:
-            print("{}".format(i[0]), end='')
-        else:
-            print("{}, ".format(i[0]), end='')
-            count += 1
+    cur.execute('SELECT cities.name FROM cities JOIN states\
+    ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id')
 
+    result = [i[0] for i in cur]
+    print(', '.join(result))
     cur.close()
     db.close()
