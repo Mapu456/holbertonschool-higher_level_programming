@@ -15,7 +15,8 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    cur.execute("SELECT * from states where name = 'Arizona'")
+    cur.execute("SELECT states.id, states.name FROM states WHERE\
+        ASCII(states.name) = 78 ORDER BY states.id")
     row = cur.fetchall()
     for i in row:
         print(i)
