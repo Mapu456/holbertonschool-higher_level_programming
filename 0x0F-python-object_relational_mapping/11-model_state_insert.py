@@ -15,8 +15,8 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    query = session.query(State).filter(
-        State.name.like('%a%')).order_by(State.id)
-    for i in query:
-        print("{}: {}".format(i.id, i.name))
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    session.commit()
+    print(new_state.id)
     session.close()
