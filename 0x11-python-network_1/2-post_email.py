@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module to send a POST request to the passed URL
+"""take URL, send a POST request to the passed URL
     with the email, and displays the body of the response
 """
 
