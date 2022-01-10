@@ -7,5 +7,5 @@ from sys import argv
 
 if __name__ == "__main__":
     value = {'email': argv[2]}
-    response = requests.post(argv[2], value)
+    response = requests.post(argv[1], value)
     print(response.text)
