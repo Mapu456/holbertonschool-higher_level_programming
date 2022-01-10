@@ -4,10 +4,10 @@
 """
 import requests
 from sys import argv
+from requests.auth import HTTPBasicAuth
 
-from requests.api import request
 
 if __name__ == "__main__":
-    url = 'https://api.github.com/users/{}'.format(argv[1])
-    request = requests.get(url, (argv[1], argv[2]))
+    url = 'https://api.github.com/user'
+    request = requests.get(url, auth=HTTPBasicAuth(argv[1], argv[2]))
     print(request.json().get("id"))
