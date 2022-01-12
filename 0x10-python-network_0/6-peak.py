@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-def findPeak(list_of_integers, left=None, right=None):
+def findnum(list_of_integers):
     n = len(list_of_integers)
-    if left is None and right is None:
-        left, right = 0, len(list_of_integers) - 1
-    mid = (left + right) // 2
-    if ((mid == 0 or list_of_integers[mid - 1] <= list_of_integers[mid]) and (mid == n - 1 or list_of_integers[mid + 1] <= list_of_integers[mid])):
-        return mid
-    if mid - 1 >= 0 and list_of_integers[mid - 1] > list_of_integers[mid]:
-        return findPeak(list_of_integers, left, mid - 1)
-    return findPeak(list_of_integers, mid + 1, right)
+    num = list_of_integers[0]
+    for i in range(1, n):
+        if list_of_integers[i] >= num:
+            num = list_of_integers[i]
+        elif list_of_integers[i] >= 0:
+            break
+    return num
  
  
-def find_peak(list_of_integers):
+def find_num(list_of_integers):
     if list_of_integers == []:
         return "None"
-    index = findPeak(list_of_integers)
-    return list_of_integers[index]
+    return findnum(list_of_integers)
